@@ -1,0 +1,18 @@
+{
+  "identifier": "default",
+  "description": "Main window capabilities",
+  "windows": ["main"],
+  "permissions": [
+    "dialog:default",
+    "core:event:allow-listen",
+    "core:event:allow-unlisten",
+    {
+      "identifier": "shell:allow-execute",
+      "allow": [
+        { "name": "bin/ffmpeg", "sidecar": true },
+        { "name": "bin/colmap", "sidecar": true },
+        { "name": "bin/brush", "sidecar": true }
+      ]
+    }
+  ]
+}

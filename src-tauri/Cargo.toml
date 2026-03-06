@@ -1,0 +1,29 @@
+[package]
+name = "splat-forge"
+version = "0.1.0"
+description = "SplatForge - Video-to-Gaussian-Splat pipeline"
+authors = ["Vitrus"]
+edition = "2021"
+rust-version = "1.70"
+
+[lib]
+name = "splat_forge_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-shell = "2"
+tauri-plugin-dialog = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1", features = ["v4"] }
+chrono = "0.4"
+tokio = { version = "1", features = ["process", "io-util"] }
+base64 = "0.22.1"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

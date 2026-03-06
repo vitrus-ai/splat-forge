@@ -1,0 +1,170 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+}
+
+:root {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  color-scheme: dark;
+  background: #050508;
+  color: #e6edf3;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --radius: 2px;
+  --background: #050508;
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.18 0.02 50);
+  --card-foreground: oklch(0.92 0.06 75);
+  --popover: oklch(0.18 0.02 50);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.75 0.15 55);
+  --primary-foreground: #0a0a0a;
+  --secondary: oklch(0.25 0.04 55);
+  --secondary-foreground: oklch(0.92 0.06 75);
+  --muted: oklch(0.22 0.02 55);
+  --muted-foreground: oklch(0.65 0.06 75);
+  --accent: oklch(0.28 0.06 55);
+  --accent-foreground: oklch(0.92 0.06 75);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.45 0.08 55 / 25%);
+  --input: oklch(0.35 0.06 55 / 20%);
+  --ring: oklch(0.65 0.12 55);
+  --amber-glow: oklch(0.7 0.15 55 / 15%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* SplatForge: Liquid Glass + Amber fantasy / monitor aesthetic */
+.splatforge-app {
+  background: #050508;
+  background-image: radial-gradient(ellipse 120% 80% at 50% -20%, oklch(0.35 0.08 55 / 12%), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%, oklch(0.2 0.04 55 / 8%), transparent);
+}
+
+.splatforge-header {
+  background: oklch(0.08 0.01 55 / 85%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.splatforge-glass {
+  background: oklch(0.1 0.02 55 / 65%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 0 0 1px oklch(0.4 0.08 55 / 20%), 0 8px 32px -8px rgba(0, 0, 0, 0.5);
+}
+
+.splatforge-glass-btn {
+  background: oklch(0.12 0.03 55 / 50%);
+  backdrop-filter: blur(8px);
+}
+
+.splatforge-glass-input {
+  backdrop-filter: blur(6px);
+}
+
+.splatforge-generate-btn:not(:disabled) {
+  box-shadow: 0 0 24px -4px oklch(0.65 0.15 55 / 35%);
+}
+
+.splatforge-processing {
+  background: #030305;
+  background-image: radial-gradient(ellipse 100% 60% at 50% 0%, oklch(0.2 0.05 55 / 15%), transparent);
+}
+
+.splatforge-processing-header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.splatforge-segments {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.splatforge-logs {
+  box-shadow: inset 0 0 0 1px oklch(0.4 0.08 55 / 15%);
+}
+
+/* Active progress segment: 45deg moving stripes to show "alive" state */
+.splatforge-segment-active {
+  background: repeating-linear-gradient(
+    45deg,
+    oklch(0.55 0.12 45),
+    oklch(0.55 0.12 45) 4px,
+    oklch(0.4 0.1 45) 4px,
+    oklch(0.4 0.1 45) 8px
+  );
+  background-size: 11.3px 11.3px;
+  animation: splatforge-stripe-move 0.6s linear infinite;
+}
+
+@keyframes splatforge-stripe-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 11.3px 0;
+  }
+}
